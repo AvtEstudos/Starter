@@ -1,0 +1,126 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso Javascript</title>
+  <body>
+    <script>
+
+      var url   = window.location.toString();
+      var paramValue = url.split('?')[1].split('=')[1];
+
+      switch (paramValue) {
+        case '1':
+          exercicio1();
+          break;
+
+        case '2':
+          exercicio2();
+          break;  
+          
+        case '3':
+          exercicio3();
+          break;            
+
+        case '4':
+          exercicio4();
+          break;            
+          
+        case '5':
+          exercicio5();
+          break;                      
+      
+        default:
+          console.log('Opção não tratada: ' + paramValue);
+          break;
+      }
+      
+      function exercicio1(){
+        var endereco = {
+          rua: "Rua dos pinheiros",
+          numero: 1293,
+          bairro: "Centro",
+          cidade: "São Paulo",
+          uf: "SP"
+        };
+
+        console.log('O usuário mora em ' +
+                    endereco.cidade +
+                    ' / ' +
+                    endereco.uf + 
+                    ', no bairro ' +
+                    endereco.bairro + 
+                    ', na rua "' +
+                    endereco.rua +
+                    '" com nº ' +
+                    endereco.numero +
+                    '.');
+      }
+
+      function exercicio2(){
+        pares(32, 321);
+      }
+
+      function pares(x, y){
+
+        for (let i = x; i <= y; i++) {
+          if ((i % 2) === 0)
+            console.log(i);
+        }
+
+      }
+
+      function exercicio3(){
+        console.log(temHabilidade(['Javascript', 'ReactJS', 'React Native']));
+      }
+
+      function temHabilidade(skills){
+        return (skills.indexOf('Javascript') < 0) ? false : true;
+      }
+
+      function exercicio4(){
+        console.log(experiencia(9));
+      }
+
+      function experiencia(anos){
+
+        // De 0-1 ano: Iniciante
+        // De 1-3 anos: Intermediário
+        // De 3-6 anos: Avançado
+        // De 7 acima: Jedi Master
+
+        if (anos >= 0 && anos <= 1 )
+          return 'Iniciante';
+        else if (anos >= 1 && anos <= 3 )  
+          return 'Intermediário';
+        else if (anos >= 3 && anos <= 6 )  
+          return 'Avançado';
+        else if (anos >= 7 )  
+          return 'Jedi Master';
+
+      }
+
+      function exercicio5(){
+
+        var usuarios = [
+          {
+            nome: "Diego",
+            habilidades: ["Javascript", "ReactJS", "Redux"]
+          },
+          {
+            nome: "Gabriel",
+            habilidades: ["VueJS", "Ruby on Rails", "Elixir"]
+          }
+        ];
+
+        usuarios.forEach(usuario => {
+          console.log('O ' + 
+                      usuario.nome + 
+                      ' possui as habilidades: ' +
+                      usuario.habilidades.join(', '));  
+        });        
+      }
+
+    </script>
+  </body>  
+  </head>
+</html>
