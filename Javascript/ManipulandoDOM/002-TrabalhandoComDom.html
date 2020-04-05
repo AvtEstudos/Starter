@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>Curso Javascript</title>
+  <body>
+    <div id="app">
+      <input type="text" name="nome" id="nome" class="nome"/>
+      <br>
+      <button class="botao">Adicionando função via querySelector</button>
+      <br>      
+      <button class="botao" onclick="teste1()" >getElementById</button>
+      <br>      
+      <button class="botao" onclick="teste2()" >getElementsByTagName</button>           
+      <br>      
+      <button class="botao" onclick="teste3()" >getElementsByClassName</button>                 
+      <br>
+      <button class="botao" onclick="teste4()" >querySelector</button>                 
+      
+    </div>
+    <script>    
+
+      function teste1() {
+        var inputElement = document.getElementById('nome');
+        console.log(inputElement);
+      }
+
+      function teste2() {
+        //Ira trazer a lista de elementos, por isso precisamos 
+        //usar o indice para indicar o primeiro  
+        var inputElement = document.getElementsByTagName('input')[0];
+        console.log(inputElement);
+      }      
+
+      function teste3() {
+        //Ira trazer a lista de elementos, por isso precisamos 
+        //usar o indice para indicar o primeiro  
+        var inputElement = document.getElementsByClassName('nome')[0];
+        console.log(inputElement);
+      }      
+
+      function teste4() {        
+        var inputElement = document.querySelector('body div#app input') ;
+
+        var inputElement = document.querySelector('input[name=nome]') ;
+        console.log(inputElement);  
+
+        var inputElementAll = document.querySelectorAll('input[name=nome]') ;
+        console.log(inputElementAll);  
+      }
+      
+      var inputElement = document.querySelector('input[name=nome]');
+      var btnElement = document.querySelector('button.botao');
+
+      btnElement.onclick = function(){
+        alert('Botão Clicado: ' + inputElement.value);
+      }                        
+
+    </script>
+  </body>  
+  </head>
+</html>

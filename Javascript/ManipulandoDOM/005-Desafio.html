@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>Curso Javascript</title>
+  <body>
+    <div id="app">
+      <button onclick="createBox()">Cria Caixa</button>
+
+      <input type="text" name="nome">
+      <button onClick="adicionar()">Adicionar</button>
+    </div>
+    <script>
+
+      var nomes = ["Diego", "Gabriel", "Lucas"];
+
+      var ulElement = document.createElement('ul');
+
+      nomes.forEach(nome => {
+        var liElement = document.createElement('li');
+        var textElement = document.createTextNode(nome);
+        liElement.appendChild(textElement);
+        ulElement.appendChild(liElement);        
+      });
+
+      var containerElement = document.querySelector('#app');
+      containerElement.appendChild(ulElement);      
+
+      function createBox(){
+        var divElement = document.createElement('div');
+        divElement.style.width = 100;
+        divElement.style.height = 100;
+        divElement.style.backgroundColor = '#f00';  
+
+        divElement.onmouseover = function(){
+          divElement.style.backgroundColor = getRandomColor();  
+        }
+
+        var containerElement = document.querySelector('#app');
+        containerElement.appendChild(divElement);      
+      } 
+
+      function getRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      function adicionar(){
+        var inputElement = document.querySelector('input[name=nome]');
+
+        var ulElement = document.querySelector('body div#app ul');
+
+        var liElement = document.createElement('li');
+        var textElement = document.createTextNode(inputElement.value);
+        liElement.appendChild(textElement);
+        ulElement.appendChild(liElement);        
+      }     
+
+    </script>
+  </body>  
+  </head>
+</html>
